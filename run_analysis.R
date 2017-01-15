@@ -1,15 +1,18 @@
 ## Load necessary packages
 library(dplyr)
 
-## Load necessary datasets (note: change path reference to wherever you have files saved)
-test_x <- read.table("C:\\Users\\mdavie\\Desktop\\Coursera\\Cleaning Data Week 4 Project\\UCI HAR Dataset\\test\\X_test.txt", header = FALSE)
-test_y <- read.table("C:\\Users\\mdavie\\Desktop\\Coursera\\Cleaning Data Week 4 Project\\UCI HAR Dataset\\test\\Y_test.txt", header = FALSE)
-train_y <- read.table("C:\\Users\\mdavie\\Desktop\\Coursera\\Cleaning Data Week 4 Project\\UCI HAR Dataset\\train\\Y_train.txt", header = FALSE)
-train_x <- read.table("C:\\Users\\mdavie\\Desktop\\Coursera\\Cleaning Data Week 4 Project\\UCI HAR Dataset\\train\\X_train.txt", header = FALSE)
-subject_test <- read.table("C:\\Users\\mdavie\\Desktop\\Coursera\\Cleaning Data Week 4 Project\\UCI HAR Dataset\\test\\subject_test.txt", header = FALSE)
-subject_train <- read.table("C:\\Users\\mdavie\\Desktop\\Coursera\\Cleaning Data Week 4 Project\\UCI HAR Dataset\\train\\subject_train.txt", header = FALSE)
-activity_labels <- read.table("C:\\Users\\mdavie\\Desktop\\Coursera\\Cleaning Data Week 4 Project\\UCI HAR Dataset\\activity_labels.txt", header = FALSE)
-features <- read.table("C:\\Users\\mdavie\\Desktop\\Coursera\\Cleaning Data Week 4 Project\\UCI HAR Dataset\\features.txt", header = FALSE)
+## Set Working Directory (to wherever you save files)
+setwd("C:/Users/mdavie/Desktop/Coursera/Cleaning Data Week 4 Project/Matthew Davie Submission")
+
+## Load necessary datasets
+test_x <- read.table(".\\X_test.txt", header = FALSE)
+test_y <- read.table(".\\Y_test.txt", header = FALSE)
+train_y <- read.table(".\\Y_train.txt", header = FALSE)
+train_x <- read.table(".\\X_train.txt", header = FALSE)
+subject_test <- read.table(".\\subject_test.txt", header = FALSE)
+subject_train <- read.table(".\\subject_train.txt", header = FALSE)
+activity_labels <- read.table(".\\activity_labels.txt", header = FALSE)
+features <- read.table(".\\features.txt", header = FALSE)
 
 ## Add proper names to the variables in the test and train datasets
 names(test_x) <- features[,2]
@@ -41,4 +44,4 @@ names(mean_data)[1] <- "Subject"
 names(mean_data)[2] <- "Activity"
 
 ## Write the tidy dataset to its own TXT file
-write.table(mean_data, "C:\\Users\\mdavie\\Desktop\\Coursera\\Cleaning Data Week 4 Project\\Code\\tidy_data.txt", sep = "\t", row.names = FALSE)
+write.table(mean_data, ".\\tidy_data.txt", sep = "\t", row.names = FALSE)
